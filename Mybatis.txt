@@ -1,0 +1,34 @@
+1.Mybatis环境搭建
+第一步：创建Maven工程并导入坐标
+第二步：创建实体类和Dao的接口
+第三步：创建Mybatis的主配置文件
+			SqlMapConfig.xml
+第四步：创建映射配置文件
+			IUserDao.xml
+			
+			
+2.创建Mybatis项目注意事项
+第一个：IUserDao和IUserMapper是一样的
+第二个：ideal中创建目录和包是不一样的
+		包创建时：com.itheima.dao是三级结构
+		目录创建时：com.itheima.dao是一级目录
+第三个：Mybatis的映射配置文件位置必须和dao的接口包接口相同，Java下的IUserDao.java和resource下的IUserDao.xml
+第四个：映射配置文件的mapper标签namespace属性的取值必须和dao接口的全限定类名
+第五个：映射配置文件操作配置(select/update/depete/insert),id属性的取值必须是dao接口的方法名
+
+当我们遵从了第三、四、五之后，我们在开发中就无须再写dao的实现类。
+
+3.第一次创建Mybatis项目问题点整理
+第一个：IUserDao.xml中List的返回值ResultType写成了ResultMap，因为没有配置ResultMap系统报错
+第二个：findAll 名称写错成finaAll，IUserDao.Java和IUserDao.xml两个文件中对应错误
+第三个：配置数据库地址链接时需要添加?characterEnding=utf8 此处多写了一个问号
+第四个：数据库字段需要和类实体一一对应才会避免许多问题，不对应时可以使用"AS"关键字、或者ResultMap来对应
+
+
+4.学习Mybatis 开始代码异常处理方式
+1. 删除.ideal文件夹
+2. 重新配置setting.xml-->Maven文件地址路径
+3. 数据库链接地址需要添加 “?characterEncoding=utf8”  报错如：Unknown initial character set index '255' received from server. Initial client charac 
+4. Mysql安装时第一种强加密方法，改成第二种问题就解决了。 报错如：Client does not support authentication protocol requested by server
+5. 数量可以堆出质量，没有数量就没有质量；
+=========================================20201108====2234===================================================================================================================
